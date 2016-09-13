@@ -3,8 +3,10 @@ XSSER
 
 <a href="https://www.blackhat.com/eu-15/arsenal.html"><img alt="Black Hat Arsenal" src="https://www.toolswatch.org/badges/arsenal/2015.svg" /></a>
 
+<a href="https://www.blackhat.com/eu-16/arsenal.html"><img alt="Black Hat Arsenal" src="https://www.toolswatch.org/badges/arsenal/2016.svg" /></a>
+
 ### Presentation 
-* From XSS to RCE 2.0 - Black Hat Europe Arsenal 2015
+* From XSS to RCE 2.0 - Black Hat Europe Arsenal 2016
 
 ### Demo
 * https://www.youtube.com/playlist?list=PLIjb28IYMQgqqqApoGRCZ_O40vP-eKsgf
