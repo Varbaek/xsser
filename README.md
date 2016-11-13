@@ -47,8 +47,8 @@ Joomla Exploit
 
 Directories
 ------------
-* Audio: Contains remixed audio notifications
-* Exploits: Contains DirtyCow (DCOW) privilege escalation exploits
+* Audio: Contains remixed audio notifications.
+* Exploits: Contains DirtyCow (DCOW) privilege escalation exploits.
 * Joomla_Backdoor: Contains a sample Joomla extension backdoor which can be uploaded as an administrator and subsequently used to execute arbitrary commands on the system with system($_GET['c']).
 * Payloads/javascript: Contains the JavaScript payloads. Contains a new "add new admin" payload for Joomla.
 * Shells: Contains the PHP shells to inject, including a slightly modified version of pentestmonkey's shell that connects back via wget.
