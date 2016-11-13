@@ -8,7 +8,7 @@ XSSER
 ### Presentation 
 * From XSS to RCE 2.5 - Black Hat Europe Arsenal 2016
 
-Note: The rest of this page and associated code has not been updated yet. 
+Note: The rest of this page and associated code has not been updated yet. Deployment test.
 
 ### Demo
 * https://www.youtube.com/playlist?list=PLIjb28IYMQgqqqApoGRCZ_O40vP-eKsgf
