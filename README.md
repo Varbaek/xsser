@@ -29,14 +29,14 @@ Payload Compatibility
 WordPress Lab
 ------------------
 * WordPress http://wordpress.org/
-* Better WP Security http://www.exploit-db.com/wp-content/themes/exploit/applications/c6d6beb3c11bc58856e15218d512b851-better-wp-security.3.5.3.zip
+* Better WP Security 3.5.3 http://www.exploit-db.com/wp-content/themes/exploit/applications/c6d6beb3c11bc58856e15218d512b851-better-wp-security.3.5.3.zip
 * Optional: WPSEO https://yoast.com/wordpress/plugins/seo/
 
 WordPress Exploit
 ------------------
 * http://www.exploit-db.com/exploits/27290/
 
-Joomle Lab
+Joomla Lab
 ------------------
 * Joomla https://www.joomla.org/
 * SecurityCheck 2.8.9 https://www.exploit-db.com/apps/543ccd00b06d24be139d7e18212a0916-com_securitycheck_j3x-2.8.9.zip
