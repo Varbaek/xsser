@@ -13,7 +13,7 @@ XSSER
 
 Requirements
 ------------
-* Python (2.7.*, version 2.7.3 was used for development and demo)
+* Python (2.7.*, version 2.7.11 was used for development and demo)
 * Gnome
 * Bash
 * Msfconsole (accessible via environment variables)
