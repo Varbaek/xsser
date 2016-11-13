@@ -38,7 +38,7 @@ WordPress Exploit
 
 Joomle Lab
 ------------------
-* https://www.joomla.org/
+* Joomla https://www.joomla.org/
 * SecurityCheck 2.8.9 https://www.exploit-db.com/apps/543ccd00b06d24be139d7e18212a0916-com_securitycheck_j3x-2.8.9.zip
 
 Joomla Exploit
