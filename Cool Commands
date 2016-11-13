@@ -1,0 +1,8 @@
+Cool (post-exploitation) commands:
+
+vBulletin:
+cat config.php | grep -P '(MasterServer|dbname)'
+
+WordPress:
+cat wp-config.php | grep -P '(KEY|SALT)'
+cat wp-config.php | grep DB_

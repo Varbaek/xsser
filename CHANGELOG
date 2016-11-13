@@ -1,0 +1,18 @@
+CHANGELOG
+
+Version 2.5:
+- WordPress Theme and Plugin injection are not using a hardcoded hostname anymore. (TARGETWEBSITE is now properly replaced)
+- Removed deprecated code for WordPress Theme and Plugin injection, so that the user is not asked twice to provide hostname to exploit.
+- Added dirtycow 32-bit and 64-bit source code files to the web servers. https://www.exploit-db.com/exploits/40616/ Note: This seems to cause kernel panic after the user quits the shell.
+- Removed --title from gnome-terminal commands as this option is no longer supported.
+- Notifications:
+  -- Added notification to the console / web server log.
+  -- Added a popup terminal notification with some ANSI text when the JavaScript is executed and "JS Shell Notify" is triggered.
+  -- Added a voice notification when the Reverse PHP Shell (Notify) option is executed on the remote server. Shell attempts to wget back to this host to the PHP Shell Notify web handler.
+- Automation:
+  -- vBulletin and WordPress shells are now automatically activated when the JavaScript is triggered.
+- New attack vectors:
+  -- Joomla "SecurityCheck" Addon - https://www.exploit-db.com/exploits/39879/ - EDB ID: 39879
+  
+  Version 2.0:
+  - First public version for Black Hat Europe

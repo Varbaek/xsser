@@ -5,13 +5,11 @@ XSSER
 
 <a href="https://www.blackhat.com/eu-16/arsenal.html"><img alt="Black Hat Arsenal" src="https://www.toolswatch.org/badges/arsenal/2016.svg" /></a>
 
-### Presentation 
+### Presentation
 * From XSS to RCE 2.5 - Black Hat Europe Arsenal 2016
 
-Note: The rest of this page and associated code has not been updated yet. Deployment test.
-
 ### Demo
-* https://www.youtube.com/playlist?list=PLIjb28IYMQgqqqApoGRCZ_O40vP-eKsgf
+* Version 2.0 - 2015: https://www.youtube.com/playlist?list=PLIjb28IYMQgqqqApoGRCZ_O40vP-eKsgf
 
 Requirements
 ------------
@@ -20,11 +18,13 @@ Requirements
 * Bash
 * Msfconsole (accessible via environment variables)
 * Netcat (nc)
+* cURL (curl) [NEW]
+* PyGame (apt-get install python-pygame) [NEW]
 
 Payload Compatibility
 ------------
-* Firefox (Confirmed in a previous version)
-* Chrome (Confirmed for the latest version - 14 Nov 2015)
+* Chrome (14 Nov 2015) - This should still work.
+* Firefox (04 Nov 2016) - Tested live at Black Hat Arsenal 2016
 
 WordPress Lab
 ------------------
@@ -36,10 +36,22 @@ WordPress Exploit
 ------------------
 * http://www.exploit-db.com/exploits/27290/
 
+Joomle Lab
+------------------
+* https://www.joomla.org/
+* SecurityCheck 2.8.9 https://www.exploit-db.com/apps/543ccd00b06d24be139d7e18212a0916-com_securitycheck_j3x-2.8.9.zip
+
+Joomla Exploit
+------------------
+* https://www.exploit-db.com/exploits/39879/
+
 Directories
 ------------
-* Payloads/javascript: Contains the JavaScript payloads
-* Shells: Contains the PHP shells to inject
+* Audio: Contains remixed audio notifications
+* Exploits: Contains DirtyCow (DCOW) privilege escalation exploits
+* Joomla_Backdoor: Contains a sample Joomla extension backdoor which can be uploaded as an administrator and subsequently used to execute arbitrary commands on the system with system(['c']).
+* Payloads/javascript: Contains the JavaScript payloads. Contains a new "add new admin" payload for Joomla.
+* Shells: Contains the PHP shells to inject, including a slightly modified version of pentestmonkey's shell that connects back via wget.
 
 Developed By
 ------------
@@ -52,6 +64,6 @@ Credits
 
 Code Design
 -----------
-* It works!
+* It works! (Again!)
 * Spaghetti code
-* Just-In-Time for Black Hat Europe 2015
+* Just-In-Time for Black Hat Europe 2016

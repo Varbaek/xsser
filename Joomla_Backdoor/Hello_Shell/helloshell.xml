@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Based on the following https://docs.joomla.org/J3.x:Developing_an_MVC_Component/Developing_a_Basic_Component -->
+<extension type="component" version="3.2.0" method="upgrade">
+
+	<name>Hello Shell!</name>
+	<!-- The following elements are optional and free of formatting constraints -->
+	<creationDate>November 2016</creationDate>
+	<author>John Doe</author>
+	<authorEmail>john.doe@example.org</authorEmail>
+	<authorUrl>http://www.example.org</authorUrl>
+	<copyright>Copyright Info</copyright>
+	<license>License Info</license>
+	<!--  The version string is recorded in the components table -->
+	<version>0.0.1</version>
+	<!-- The description is optional and defaults to the name -->
+	<description>Description of the Hello Shell component ...</description>
+
+	<update> <!-- Runs on update; New since J2.5 -->
+		<schemas>
+			<schemapath type="mysql">sql/updates/mysql</schemapath>
+		</schemas>
+	</update>
+
+	<!-- Site Main File Copy Section -->
+	<!-- Note the folder attribute: This attribute describes the folder
+		to copy FROM in the package to install therefore files copied
+		in this section are copied from /site/ in the package -->
+	<files folder="site">
+		<filename>index.html</filename>
+		<filename>helloshell.php</filename>
+	</files>
+
+	<administration>
+		<!-- Administration Menu Section -->
+		<menu link='index.php?option=com_helloshell'>Hello Shell!</menu>
+		<!-- Administration Main File Copy Section -->
+		<!-- Note the folder attribute: This attribute describes the folder
+			to copy FROM in the package to install therefore files copied
+			in this section are copied from /admin/ in the package -->
+		<files folder="admin">
+			<!-- Admin Main File Copy Section -->
+			<filename>index.html</filename>
+			<filename>helloshell.php</filename>
+			<!-- SQL files section -->
+			<folder>sql</folder>
+		</files>
+	</administration>
+
+</extension>
