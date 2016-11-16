@@ -10,6 +10,7 @@ XSSER
 
 ### Demo
 * Version 2.0 - 2015: https://www.youtube.com/playlist?list=PLIjb28IYMQgqqqApoGRCZ_O40vP-eKsgf
+* Version 2.5 - 2016: https://www.youtube.com/playlist?list=PLRic6PgcrsWGkgacL6WFnSQKVRZIoofRj
 
 Requirements
 ------------
