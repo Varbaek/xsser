@@ -22,6 +22,8 @@ Requirements
 * cURL (curl) [NEW]
 * PyGame (apt-get install python-pygame) [NEW]
 
+For installation instructions on Ubuntu 16.04.1 LTS, please refer to the wiki: https://github.com/Varbaek/xsser/wiki
+
 Payload Compatibility
 ------------
 * Chrome (14 Nov 2015) - This should still work.
