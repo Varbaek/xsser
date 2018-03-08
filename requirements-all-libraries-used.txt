@@ -1,0 +1,15 @@
+###### Requirements without Version Specifiers ######
+base64
+BaseHTTPServer
+jsmin
+os
+pygame
+random
+re
+requests
+socket
+subprocess
+sys
+time
+traceback
+zipfile

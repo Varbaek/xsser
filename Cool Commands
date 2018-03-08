@@ -6,3 +6,15 @@ cat config.php | grep -P '(MasterServer|dbname)'
 WordPress:
 cat wp-config.php | grep -P '(KEY|SALT)'
 cat wp-config.php | grep DB_
+
+# Username: root, Password: root, Database name: wordpress
+mysql -uroot -proot wordpress -e 'select user_login,user_pass from wp_users;' > /tmp/wordpress_hashes
+# Download the file and then run it against hashcat (-m 400) for example.
+# See e.g. https://samsclass.info/seminars/CMS/hashcat-wordpress.htm
+
+Less cool commands:
+1) Find world-writeable files: find /dir -xdev -perm +o=w ! \( -type d -perm +o=t \) ! -type l -print
+2) Find world-readable files:  find /dir -xdev -perm +o=r ! \( -type d -perm +o=t \) ! -type l -print
+
+Privilege escalation:
+https://github.com/mzet-/linux-exploit-suggester

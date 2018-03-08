@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Based on the following https://docs.joomla.org/J3.x:Developing_an_MVC_Component/Developing_a_Basic_Component -->
+<!--suppress XmlUnboundNsPrefix -->
 <extension type="component" version="3.2.0" method="upgrade">
-
+	<!-- You can rename any of the variables to make this backdoor less obvious -->
 	<name>Hello Shell!</name>
 	<!-- The following elements are optional and free of formatting constraints -->
-	<creationDate>November 2016</creationDate>
-	<author>John Doe</author>
-	<authorEmail>john.doe@example.org</authorEmail>
-	<authorUrl>http://www.example.org</authorUrl>
+	<creationDate>March 2018</creationDate>
+	<author>Varbaek</author>
+	<authorEmail>xsser@varbits.net</authorEmail>
+	<authorUrl>https://www.varbits.com</authorUrl>
 	<copyright>Copyright Info</copyright>
 	<license>License Info</license>
 	<!--  The version string is recorded in the components table -->
-	<version>0.0.1</version>
+	<version>2.7.5</version>
 	<!-- The description is optional and defaults to the name -->
 	<description>Description of the Hello Shell component ...</description>
 

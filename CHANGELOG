@@ -1,18 +1,86 @@
 CHANGELOG
 
-Version 2.5:
-- WordPress Theme and Plugin injection are not using a hardcoded hostname anymore. (TARGETWEBSITE is now properly replaced)
-- Removed deprecated code for WordPress Theme and Plugin injection, so that the user is not asked twice to provide hostname to exploit.
-- Added dirtycow 32-bit and 64-bit source code files to the web servers. https://www.exploit-db.com/exploits/40616/ Note: This seems to cause kernel panic after the user quits the shell.
+/--------------\
+| Version 2.75 |
+\--------------/
+General:
+- Various improvements and optimizations.
+- Various files may have comments such as: // noinspection JSUndefinedPropertyAssignment
+  This type of comment is intended for PyCharm to ignore certain warnings and errors.
+- Various todo notes have been added to the files for future versions. These also function
+  as a roadmap, to see what's planned in upcoming releases.
+- Added another command to run during post-exploitation scenarios for WordPress.
+- Added some other commands and resources for post-exploitation in general.
+- Formatted license slightly so that it has appropriate linebreaks.
+- Added "requirements.txt" and "requirements-all-libraries-used.txt" files for easier
+  dependency installation with python pip.
+
+Joomla backdoor:
+- Now checks if the "c" or "c64" parameters are set before executing any code.
+- Base64 encoded payloads are now, also supported via the "c64" HTTP parameter.
+- All error reporting has been disabled for this backdoor.
+- For added stealth, this backdoor/plugin can e.g. be encoded. (Refer to PHP files.)
+- Additional comments about advanced usage can also be found in the PHP files.
+- For changing how the plugin itself works and is referenced within Joomla,
+  please refer to the helloshell.xml file. Note: Almost everything can easily be changed
+  in these files, except the directory name which must also be renamed in xsser.py.
+
+JavaScript payloads:
+- Added a new educational and generic payload. This has not been implemented into xsser.py yet.
+- Versions standardized across all payloads.
+- SetCookie() now uses non-deprecated functions.
+- The "cookie match" now uses regular expressions to properly check if the attacker's cookie is present.
+- Joomla payloads now have a "self-removal" option for the initial injection.
+  Note: This only seems to work when executed manually at the moment.
+- WordPress payloads have been updated to use "nonce" instead of "_wpnonce", as this was changed since
+  last year. A future version may be used to generate the correct payload, depending on whether a very
+  old version of WordPress is in use, or a currently up to date version.
+- The prepopulated forms in the WordPress payloads have been updated, to accommodate source code changes
+  since last year.
+- setTimeout() was updated so it is used in a better, and more maintainable manner.
+- Header sections are now more standardized, in terms of design and layout.
+
+XSSER:
+- Switched from gnome-terminal to xterm due to several configuration options being deprecated.
+- Removed the redundant requirements description. Please refer to the README.md file instead.
+- Removed "written for", "tested on", "tested against", and "changelog". Refer to README.md
+- Added new function which gets all assigned IP addresses and lets the user choose which to listen on.
+  This minimizes the time that the user has to spend on typing the IP address to listen on and serve files from.
+  -- vBSEO and BetterWPSecurity Exploits: PHP and JS filenames are now generated in a more random manner.
+- All JavaScript payloads are now minified (comments and extra newlines removed) and base64 encoded during run-time.
+- Converted all "os.system(curl)" requests to python requests with 3 second timeout instead.
+- Converted all "httplib.HTTPConnection()" requests to python 'requests' with 3 second timeout.
+- Replaced all "%s" with "{}".format()
+- Joomla "Hello_Shell" backdoor (zip) file, is now automatically generated each time the xsser.py tool runs.
+  Note: If you make a change to any of the files in the Hello_Shell directory, simply exit xsser.py and run
+  it again to automatically create the zip file.
+- Experimental POST-request handler implemented into the generic web server. This is currently not used.
+
+Testing:
+- All exploits and payloads have been tested against the latest application versions, except vBulletin 4.X.X
+  which is not compatible with the now deprecated vBSEO plugin.
+
+/-------------\
+| Version 2.5 |
+\-------------/
+- WordPress Theme and Plugin injection are not using a hardcoded hostname anymore. (TARGETWEBSITE is now
+  properly replaced)
+- Removed deprecated code for WordPress Theme and Plugin injection, so that the user is not asked twice to
+  provide hostname.
+- Added dirtycow 32-bit and 64-bit source code files to the web servers. https://www.exploit-db.com/exploits/40616/
+  Note: This seems to cause kernel panic after the user quits the shell.
 - Removed --title from gnome-terminal commands as this option is no longer supported.
 - Notifications:
-  -- Added notification to the console / web server log.
-  -- Added a popup terminal notification with some ANSI text when the JavaScript is executed and "JS Shell Notify" is triggered.
-  -- Added a voice notification when the Reverse PHP Shell (Notify) option is executed on the remote server. Shell attempts to wget back to this host to the PHP Shell Notify web handler.
+  -- Added notifications to the console / web server log.
+  -- Added a popup notification with some ASCII text, when the JavaScript has been fully executed by the target.
+  -- Added a voice notification, when the Reverse PHP Shell (Notify) option is used, and the associated code
+     in the PHP shell connects back to the attacker's machine.
 - Automation:
   -- vBulletin and WordPress shells are now automatically activated when the JavaScript is triggered.
 - New attack vectors:
   -- Joomla "SecurityCheck" Addon - https://www.exploit-db.com/exploits/39879/ - EDB ID: 39879
-  
-  Version 2.0:
-  - First public version for Black Hat Europe
+
+/-------------\
+| Version 2.0 |
+\-------------/
+- First public version for Black Hat Europe

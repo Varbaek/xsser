@@ -1,33 +1,49 @@
 XSSER
 ==========
 
-<a href="https://www.blackhat.com/eu-15/arsenal.html"><img alt="Black Hat Arsenal" src="https://www.toolswatch.org/badges/arsenal/2015.svg" /></a>
+<a href="https://www.blackhat.com/eu-15/arsenal.html"><img alt="Black Hat Arsenal" src="https://rawgit.com/toolswatch/badges/master/arsenal/2015.svg" /></a>
 
-<a href="https://www.blackhat.com/eu-16/arsenal.html"><img alt="Black Hat Arsenal" src="https://www.toolswatch.org/badges/arsenal/2016.svg" /></a>
+<a href="https://www.blackhat.com/eu-16/arsenal.html"><img alt="Black Hat Arsenal" src="https://rawgit.com/toolswatch/badges/master/arsenal/2016.svg" /></a>
+
+<a href="https://www.blackhat.com/eu-17/arsenal.html"><img alt="Black Hat Arsenal" src="https://rawgit.com/toolswatch/badges/master/arsenal/2017.svg" /></a>
 
 ### Presentation
-* From XSS to RCE 2.5 - Black Hat Europe Arsenal 2016
+* From XSS to RCE 2.75 - Black Hat Europe Arsenal 2017
 
 ### Demo
-* Version 2.0 - 2015: https://www.youtube.com/playlist?list=PLIjb28IYMQgqqqApoGRCZ_O40vP-eKsgf
-* Version 2.5 - 2016: https://www.youtube.com/playlist?list=PLRic6PgcrsWGkgacL6WFnSQKVRZIoofRj
+* Version 2.0  - 2015: https://www.youtube.com/playlist?list=PLIjb28IYMQgqqqApoGRCZ_O40vP-eKsgf
+* Version 2.5  - 2016: https://www.youtube.com/playlist?list=PLRic6PgcrsWGkgacL6WFnSQKVRZIoofRj
+* Version 2.75 - 2017: None Currently Available 
 
 Requirements
 ------------
-* Python (2.7.*, version 2.7.11 was used for development and demo)
-* Gnome
-* Bash
+* Python (2.7.*, version `2.7.14` was used for development and testing)
 * Msfconsole (accessible via environment variables)
 * Netcat (nc)
-* cURL (curl) [NEW]
-* PyGame (apt-get install python-pygame) [NEW]
+* PyGame (pip install pygame)
+* jsmin (new dependency - pip install jsmin)
+* xterm (previously gnome and bash)
+
+To install the Python dependencies, you can run the following command:
+
+`pip install -r requirements.txt`
+
+If you're using a virtual environment, then you may need to use the full list:
+
+`pip install -r requirements-all-libraries-used.txt`
 
 For installation instructions on Ubuntu 16.04.1 LTS, please refer to the wiki: https://github.com/Varbaek/xsser/wiki
 
+Removed Dependencies:
+------------
+* Gnome (switched to xterm)
+* Bash (only tested in bash, but should work in other terminals)
+* cURL (switched to native python requests)
+
 Payload Compatibility
 ------------
-* Chrome (14 Nov 2015) - This should still work.
-* Firefox (04 Nov 2016) - Tested live at Black Hat Arsenal 2016
+* Chrome (2018) - Tested live at Black Hat Arsenal 2017 and during extras development.
+* Firefox - Untested - Should still work as available JS features are almost the same.
 
 WordPress Lab
 ------------------
@@ -52,21 +68,26 @@ Directories
 ------------
 * Audio: Contains remixed audio notifications.
 * Exploits: Contains DirtyCow (DCOW) privilege escalation exploits.
-* Joomla_Backdoor: Contains a sample Joomla extension backdoor which can be uploaded as an administrator and subsequently used to execute arbitrary commands on the system with system($_GET['c']).
-* Payloads/javascript: Contains the JavaScript payloads. Contains a new "add new admin" payload for Joomla.
-* Shells: Contains the PHP shells to inject, including a slightly modified version of pentestmonkey's shell that connects back via wget.
+* Hello_Shell: Contains a Joomla extension backdoor, which can be uploaded as an administrator and 
+               subsequently used to execute arbitrary commands on the system with ?c=ls or ?c64=base64_here.
+               This directory was originally placed in "Joomla_Backdoor".
+* Payloads/javascript: Contains the JavaScript payloads.
+* Received_Data: Empty directory which will be used in future versions.
+* Shells: Contains the PHP shells, including a slightly modified version of pentestmonkey's shell that 
+          connects back via wget to send the attacker a notification of success.
 
 Developed By
 ------------
 * Hans-Michael Varbaek
-* Sense of Security
+* VarBITS
 
-Credits
+Special Credits
 ------------
 * MaXe / InterN0T
+* Sense of Security (Versions 2.0 - 2.5)
 
 Code Design
 -----------
 * It works! (Again!)
-* Spaghetti code
-* Just-In-Time for Black Hat Europe 2016
+* Still spaghetti code, but now with almost complete `PEP8` and possible refactoring in the future.
+* Just-In-Time for Black Hat Europe 2017

