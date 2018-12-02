@@ -1,11 +1,13 @@
 XSSER
 ==========
 
-<a href="https://www.blackhat.com/eu-15/arsenal.html"><img alt="Black Hat Arsenal" src="https://rawgit.com/toolswatch/badges/master/arsenal/2015.svg" /></a>
+<a href="https://www.blackhat.com/eu-15/arsenal.html"><img alt="Black Hat Arsenal" src="https://raw.githubusercontent.com/toolswatch/badges/master/arsenal/europe/2015.svg" /></a>
 
-<a href="https://www.blackhat.com/eu-16/arsenal.html"><img alt="Black Hat Arsenal" src="https://rawgit.com/toolswatch/badges/master/arsenal/2016.svg" /></a>
+<a href="https://www.blackhat.com/eu-16/arsenal.html"><img alt="Black Hat Arsenal" src="https://raw.githubusercontent.com/toolswatch/badges/master/arsenal/europe/2016.svg" /></a>
 
-<a href="https://www.blackhat.com/eu-17/arsenal.html"><img alt="Black Hat Arsenal" src="https://rawgit.com/toolswatch/badges/master/arsenal/2017.svg" /></a>
+<a href="https://www.blackhat.com/eu-17/arsenal.html"><img alt="Black Hat Arsenal" src="https://raw.githubusercontent.com/toolswatch/badges/master/arsenal/europe/2017.svg" /></a>
+
+<a href="https://www.blackhat.com/eu-18/arsenal/schedule/index.html"><img alt="Black Hat Arsenal" src="https://raw.githubusercontent.com/toolswatch/badges/master/arsenal/europe/2018.svg" /></a>
 
 ### Presentation
 * From XSS to RCE 2.75 - Black Hat Europe Arsenal 2017
